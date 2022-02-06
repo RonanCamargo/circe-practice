@@ -1,0 +1,8 @@
+{
+  "name": "Juan",
+  "age": 20,
+  "document": {
+    "documentNumber": "12345678",
+    "documentType": "LC"
+  }
+}

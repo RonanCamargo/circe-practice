@@ -14,7 +14,7 @@ object Decoding extends App {
   implicit val configuration: Configuration = Configuration.default.withSnakeCaseMemberNames
 
   val json = FileManager.readJson("person")
-  io.circe.parser.decode[Person](json).pipe(println)
+  io.circe.parser.decode[PersonWithDocumentEnum](json).pipe(println)
 
   val carJson = FileManager.readJson("car1")
   io.circe.parser.decode[Car](carJson).pipe(println)
@@ -38,8 +38,9 @@ object Decoding extends App {
 
   readJson("cars-object") |> decode[Cars] |> println
 
-  Person("Juan", 20, Document("123", "DNI")) |> Encoder.encode[Person] |> (_.noSpaces) |> println
+  PersonWithDocumentEnum("Juan", 20, Document("123", "DNI")) |> Encoder
+    .encode[PersonWithDocumentEnum] |> (_.noSpaces) |> println
 
-  val dec: Decoder[Person] = deriveConfiguredDecoder[Person]
+  val dec: Decoder[PersonWithDocumentEnum] = deriveConfiguredDecoder[PersonWithDocumentEnum]
 
 }
