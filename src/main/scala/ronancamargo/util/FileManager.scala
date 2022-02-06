@@ -6,6 +6,13 @@ import scala.jdk.CollectionConverters._
 import scala.util.chaining._
 
 object FileManager {
+
+  /** Reads a json from src/resources folder.
+    * @param json
+    *   json file name
+    * @return
+    *   Read file as String
+    */
   def readJson(json: String): String = filePath(s"$json.json") pipe readFile
 
   def filePath(fileName: String): Path = Paths.get(s"src/main/resources/$fileName")
