@@ -17,19 +17,19 @@ object Decoding extends App {
   io.circe.parser.decode[PersonWithDocumentEnum](json).pipe(println)
 
   val carJson = FileManager.readJson("car1")
-  io.circe.parser.decode[Car](carJson).pipe(println)
+  io.circe.parser.decode[SimpleCar](carJson).pipe(println)
 
   import io.circe.parser.decode
   import ronancamargo.util.FileManager.readJson
 
   val car2Json = readJson("car2")
-  decode[Car2](car2Json).pipe(println)
+  decode[CarMaybeOwner](car2Json).pipe(println)
 
   val car3Json = readJson("car3")
-  decode[Car2](car3Json).pipe(println)
+  decode[CarMaybeOwner](car3Json).pipe(println)
 
   val carsJson = readJson("cars-array")
-  decode[List[Car2]](carsJson).pipe(println)
+  decode[List[CarMaybeOwner]](carsJson).pipe(println)
 
   val carsObjectJson = readJson("cars-object")
   decode[Cars](carsObjectJson)

@@ -1,6 +1,6 @@
 package ronancamargo.entities
 
-import io.circe.Encoder
+import io.circe.{Decoder, Encoder}
 
 sealed trait CarStateADT
 
@@ -8,16 +8,16 @@ object CarStateADT {
   case object OnSale extends CarStateADT
   case object Sold   extends CarStateADT
 
-  val stringEncoder: Encoder[String]         = Encoder.encodeString
+  private val stringEncoder: Encoder[String] = Encoder.encodeString
   implicit val encoder: Encoder[CarStateADT] = stringEncoder.contramap {
     case OnSale => "ON_SALE"
     case Sold   => "SOLD"
   }
 
-//  implicit val decoder: Decoder[CarStateADT] = Decoder.decodeString.map {
-//    case "ON_SALE" => OnSale
-//    case "SOLD"    => Sold
-//  }
+  implicit val decoder: Decoder[CarStateADT] = Decoder.decodeString.map {
+    case "ON_SALE" => OnSale
+    case "SOLD"    => Sold
+  }
 
 //  import cats.syntax.either._
 //  implicit val eitherDecoder: Decoder[CarStateADT] = Decoder.decodeString.emap[CarStateADT] {
