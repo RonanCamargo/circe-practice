@@ -1,0 +1,26 @@
+[
+  {
+    "brand": "Lamborghini",
+    "model": "Veneno",
+    "state": "SOLD",
+    "owner":{
+      "name": "Ronan",
+      "age": 27,
+      "document": {
+        "documentNumber": "12345678",
+        "documentType": "DNI"
+      }
+    }
+  },
+  {
+    "brand": "Lamborghini",
+    "model": "Veneno",
+    "state": "ON_SALE",
+    "owner": null
+  },
+  {
+    "brand": "Lamborghini",
+    "model": "Veneno",
+    "state": "ON_SALE"
+  }
+]
