@@ -1,5 +1,0 @@
-package ronancamargo
-
-object Decoding {
-
-}
